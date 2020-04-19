@@ -1,0 +1,80 @@
+﻿@model EmpAssignment.ViewModels.EmployeeViewModel
+@{
+    ViewBag.Title = "AddEmployee";
+}
+<div class="form-wrapper">
+
+    <div class="container">
+
+        <div class="page-header">
+      
+                <h1>
+               Add Employee
+            </h1>
+        </div>
+        @using (Html.BeginForm("SaveEmployee", "Employee", FormMethod.Post, new { enctype = "multipart/form-data", name = "frmEmployee", id = "frmEmployee", @autocomplete = "off" }))
+        {
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name</label>
+
+                        @Html.TextBoxFor(x => x.Name, new { id = "Name", @class = "form-control", name = "Name",placeholder="Name", tabindex = 3,required=true })
+                        @Html.ValidationMessageFor(x => x.Name, "", new { @class = "error-message text-danger" })
+                        @*<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>*@
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Marital Status</label>
+                        @Html.DropDownListFor(x => x.MaritalStatus, new List<SelectListItem>
+                                                    { new SelectListItem{ Text="Married", Value = "Married" },
+                                                        new SelectListItem{ Text="Unmarried", Value = "Unmarried" }
+                                                     }, "Select Marital Status", new { id = "MaritalStatus", @class = "form-control", name = "MaritalStatus", tabindex = 7, required = true })
+                        @Html.ValidationMessageFor(x => x.MaritalStatus, "", new { @class = "error-message text-danger" })
+                    </div> </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Age</label>
+
+                        @Html.TextBoxFor(x => x.Age, new { id = "Age", @class = "form-control", name = "Age", tabindex = 3, placeholder = "Age", required = true })
+                        @Html.ValidationMessageFor(x => x.Age, "", new { @class = "error-message text-danger" })
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Salary</label>
+
+                            @Html.TextBoxFor(x => x.Salary, new { id = "Salary", @class = "form-control", name = "Salary", tabindex = 3, required = true, placeholder = "Salary" })
+                            @Html.ValidationMessageFor(x => x.Salary, "", new { @class = "error-message text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Location</label>
+
+                            @Html.TextBoxFor(x => x.Location, new { id = "Location", @class = "form-control", name = "Location", tabindex = 3, required = true, placeholder = "Location" })
+                            @Html.ValidationMessageFor(x => x.Location, "", new { @class = "error-message text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+            <div class="form-actions text-right">
+                @Ajax.ActionLink("Cancel", "Employees", "Employee", null, null, new { @class = "btn btn-danger" })
+                  @*<button class="btn btn-outline-primary prevBtn" type="button" data-value="Previous" value="Previous" tabindex="101" name="PrevBtn">
+                    <span class="btn-text">Cancel</span>
+                </button>*@
+                <button class="btn btn-primary" type="submit" data-value="savebtn" value="savebtn" tabindex="102" name="savebtn">
+                    <span class="btn-text">Save</span>
+                </button>
+            </div>
+
+        }
+        </div>
+    </div>
+
+
