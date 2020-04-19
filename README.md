@@ -14,3 +14,24 @@ Integration of jquery datatable with  .net framework 4.6 mvc5.2 application. Add
 * Update the connection string in web.config file
 
 
+
+
+Screenshot
+
+
+List:
+
+ 
+
+ 
+ 
+Search 
+ 
+
+ 
+ 
+Confirmation Box :
+
+ 
+
+
